@@ -1,0 +1,10 @@
+D:\malomjatek - TP\malom\malom\bin\Debug\malom.exe.config
+D:\malomjatek - TP\malom\malom\bin\Debug\malom.exe
+D:\malomjatek - TP\malom\malom\bin\Debug\malom.pdb
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.csproj.AssemblyReference.cache
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.Form1.resources
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.Properties.Resources.resources
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.exe
+D:\malomjatek - TP\malom\malom\obj\Debug\malom.pdb
