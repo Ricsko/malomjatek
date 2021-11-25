@@ -21,6 +21,8 @@ namespace malom
         private void button1_Click(object sender, EventArgs e)
         {
             nevellenorzes();
+            this.WindowState = FormWindowState.Maximized;
+            
             button2.Visible = false;
         }
 
@@ -86,9 +88,9 @@ namespace malom
             int x = 150;
             int y = 30;
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     PictureBox kulsoresz = new PictureBox();
                     kulsoresz.Size = new Size(50, 50);
