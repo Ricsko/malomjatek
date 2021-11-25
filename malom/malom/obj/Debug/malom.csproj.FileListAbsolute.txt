@@ -18,3 +18,13 @@ D:\waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaú\malom\malom\obj\Debug\malom.csproj.Generat
 D:\waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaú\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
 D:\waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaú\malom\malom\obj\Debug\malom.exe
 D:\waaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaú\malom\malom\obj\Debug\malom.pdb
+D:\majom\malom\malom\bin\Debug\malom.exe.config
+D:\majom\malom\malom\bin\Debug\malom.exe
+D:\majom\malom\malom\bin\Debug\malom.pdb
+D:\majom\malom\malom\obj\Debug\malom.csproj.AssemblyReference.cache
+D:\majom\malom\malom\obj\Debug\malom.Form1.resources
+D:\majom\malom\malom\obj\Debug\malom.Properties.Resources.resources
+D:\majom\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
+D:\majom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
+D:\majom\malom\malom\obj\Debug\malom.exe
+D:\majom\malom\malom\obj\Debug\malom.pdb

@@ -20,6 +20,7 @@ namespace malom
         private void button1_Click(object sender, EventArgs e)
         {
             nevellenorzes();
+            button2.Visible = false;
         }
 
         private void nevellenorzes()
@@ -87,7 +88,7 @@ namespace malom
         {
             gombeltuntetes();
             richTextBox1.Visible = true;
-            button3.Visible = true;
+            Xbutton.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -103,7 +104,7 @@ namespace malom
             label2.Visible = true;
             button1.Visible = true;
             richTextBox1.Visible = false;
-            button3.Visible = false;
+            Xbutton.Visible = false;
         }
     }
 }

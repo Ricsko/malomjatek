@@ -86,5 +86,17 @@
   <ItemGroup>
     <None Include="bin\Debug\tabla.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\TITLE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\inditas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\szabalyok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\feher.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
