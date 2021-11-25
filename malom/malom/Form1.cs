@@ -12,6 +12,7 @@ namespace malom
 {
     public partial class Form1 : Form
     {
+        static PictureBox[,] babuk = new PictureBox[2, 9];
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +40,35 @@ namespace malom
 
             gombeltuntetes();
             palyageneralas();
+            babugeneralas();
+        }
+
+        private void babugeneralas()
+        {
+            int x = 250;
+            int y = 400;
+            int szin = 0;
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    PictureBox babu = new PictureBox();
+                    babu.Size = new Size(50, 50);
+                    babu.Name = $"babu_{i}_{j}";
+                    babu.BackgroundImage = keplista.Images[szin % 2];
+                    babu.Location = new Point(x + 6, y);
+                    babu.BackgroundImageLayout = ImageLayout.Zoom;
+                    //babu.MouseClick += new MouseEventHandler(babuklikk);
+                    babuk[i, j] = babu;
+                    this.Controls.Add(babu);
+
+                    szin++;
+                    x += 55;
+                }
+                x = 250;
+                y += 55;
+            }
         }
 
         private void gombeltuntetes()
@@ -48,6 +78,7 @@ namespace malom
             label1.Visible = false;
             label2.Visible = false;
             button1.Visible = false;
+            pictureBox1.Visible = false;
         }
 
         private void palyageneralas()
