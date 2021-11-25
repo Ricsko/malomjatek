@@ -82,5 +82,28 @@ namespace malom
                 y += 50;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            gombeltuntetes();
+            richTextBox1.Visible = true;
+            button3.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gombvisszahozas();
+        }
+
+        private void gombvisszahozas()
+        {
+            jatekos1_TBOX.Visible = true;
+            jatekos2_TBOX.Visible = true;
+            label1.Visible = true;
+            label2.Visible = true;
+            button1.Visible = true;
+            richTextBox1.Visible = false;
+            button3.Visible = false;
+        }
     }
 }
