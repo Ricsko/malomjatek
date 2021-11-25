@@ -29,6 +29,7 @@ namespace malom
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@ namespace malom
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.Xbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.keplista = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -155,6 +157,13 @@ namespace malom
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // keplista
+            // 
+            this.keplista.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("keplista.ImageStream")));
+            this.keplista.TransparentColor = System.Drawing.Color.Transparent;
+            this.keplista.Images.SetKeyName(0, "feher.png");
+            this.keplista.Images.SetKeyName(1, "feka.png");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,6 +203,7 @@ namespace malom
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button Xbutton;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ImageList keplista;
     }
 }
 
