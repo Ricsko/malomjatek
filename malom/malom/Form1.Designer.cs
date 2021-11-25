@@ -127,7 +127,7 @@ namespace malom
             this.richTextBox1.BackColor = System.Drawing.SystemColors.InfoText;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.richTextBox1.Location = new System.Drawing.Point(347, 64);
+            this.richTextBox1.Location = new System.Drawing.Point(417, 64);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(530, 507);
             this.richTextBox1.TabIndex = 7;
@@ -176,12 +176,12 @@ namespace malom
             this.Controls.Add(this.Xbutton);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.jatekos2_TBOX);
             this.Controls.Add(this.jatekos1_TBOX);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Malom játék";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

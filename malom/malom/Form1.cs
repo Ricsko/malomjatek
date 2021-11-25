@@ -20,8 +20,9 @@ namespace malom
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nevellenorzes();
             this.WindowState = FormWindowState.Maximized;
+            nevellenorzes();
+          
             
             button2.Visible = false;
         }
@@ -40,15 +41,30 @@ namespace malom
              labelek, textboxok, buttonok eltüntetése   
             }*/
 
+            palyaelhelyezes();
             gombeltuntetes();
-            palyageneralas();
             babugeneralas();
+        }
+
+        private void palyaelhelyezes()
+        {
+            PictureBox kep = new PictureBox();
+            kep.BackColor = Color.Red;
+            kep.Size = new Size(50, 50);
+            kep.Location = new Point(this.Width / 2 - 290, 100);
+            kep.BringToFront();
+            this.Controls.Add(kep);
+
+
+            pictureBox1.Location = new Point(this.Width / 2 - 290, 100);
+
+  
         }
 
         private void babugeneralas()
         {
-            int x = 250;
-            int y = 400;
+            int x = this.Width / 2 - 290;
+            int y = 800;
             int szin = 0;
 
             for (int i = 0; i < 2; i++)
@@ -61,6 +77,7 @@ namespace malom
                     babu.BackgroundImage = keplista.Images[szin % 2];
                     babu.Location = new Point(x + 6, y);
                     babu.BackgroundImageLayout = ImageLayout.Zoom;
+                    babu.BackColor = Color.Transparent;
                     //babu.MouseClick += new MouseEventHandler(babuklikk);
                     babuk[i, j] = babu;
                     this.Controls.Add(babu);
@@ -68,7 +85,7 @@ namespace malom
                     szin++;
                     x += 55;
                 }
-                x = 250;
+                x = this.Width / 2 - 290;
                 y += 55;
             }
         }
@@ -80,41 +97,6 @@ namespace malom
             label1.Visible = false;
             label2.Visible = false;
             button1.Visible = false;
-            pictureBox1.Visible = false;
-        }
-
-        private void palyageneralas()
-        {
-            int x = 150;
-            int y = 30;
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int j = 0; j < 7; j++)
-                {
-                    PictureBox kulsoresz = new PictureBox();
-                    kulsoresz.Size = new Size(50, 50);
-                    kulsoresz.Location = new Point(x + 6, y);
-                    kulsoresz.Name = $"{i}_{j}";
-                    //kulsoresz.MouseClick += new MouseEventHandler(mozgatasClick);
-                    if ((i + j) % 3 == 0)
-                    {
-                        kulsoresz.BackColor = Color.FromArgb(255, 216, 176);
-                    }
-                    else
-                    {
-                        kulsoresz.BackColor = Color.White;
-                        kulsoresz.Enabled = false;
-                    }
-                    this.Controls.Add(kulsoresz);
-                    //jatekter[i, j] = kulsoresz;
-
-                    x += 50;
-                }
-
-                x = 150;
-                y += 50;
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
