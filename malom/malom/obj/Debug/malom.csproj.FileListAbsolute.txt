@@ -28,3 +28,13 @@ D:\majom\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
 D:\majom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
 D:\majom\malom\malom\obj\Debug\malom.exe
 D:\majom\malom\malom\obj\Debug\malom.pdb
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\bin\Debug\malom.exe.config
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\bin\Debug\malom.exe
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\bin\Debug\malom.pdb
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.Form1.resources
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.Properties.Resources.resources
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.exe
+C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.pdb

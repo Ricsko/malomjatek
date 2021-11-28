@@ -13,6 +13,10 @@ namespace malom
     public partial class Form1 : Form
     {
         static PictureBox[,] babuk = new PictureBox[2, 9];
+        static PictureBox[,] jatekTer = new PictureBox[7, 7];
+        static int aktSzin = 0;
+        static PictureBox aktBabu = new PictureBox();
+
         public Form1()
         {
             InitializeComponent();
@@ -48,18 +52,91 @@ namespace malom
 
         private void palyaelhelyezes()
         {
-            PictureBox kep = new PictureBox();
-            kep.BackColor = Color.Red;
-            kep.Size = new Size(50, 50);
-            kep.Location = new Point(this.Width / 2 - 290, 100);
-            kep.BringToFront();
-            this.Controls.Add(kep);
+            int x = this.Size.Width / 2 - 196;
+            int y = 100;
+            string[] palyaGeneraloSeged = { "0_0", "0_3", "0_6", "1_1", "1_3", "1_5", "2_2", "2_3", "2_4", "3_0", "3_1", "3_2", "3_4", "3_5", "3_6", "4_2", "4_3", "4_4", "5_1", "5_3", "5_5", "6_0", "6_3", "6_6" };
 
+            for (int i = 0; i < 7; i++)
+            {
+                for (int  j = 0;  j < 7;  j++)
+                {
+                    PictureBox kep = new PictureBox();
+                    kep.BackColor = Color.Brown;
+                    kep.Size = new Size(50, 50);
+                    kep.BackgroundImageLayout = ImageLayout.Zoom;
+                    kep.Location = new Point(x + 30, y);
+                    kep.Name = $"{i}_{j}";
+                    kep.Tag = "1";
+                    kep.MouseClick += new MouseEventHandler(jatekTerklikk);
+                    jatekTer[i, j] = kep;
+
+                    if (!palyaGeneraloSeged.Contains(kep.Name))
+                    {
+                        kep.Visible = false;
+                        kep.Tag = "0";
+                    }
+
+                    kep.BringToFront();
+                    this.Controls.Add(kep);
+                    x +=86;
+                }
+
+                x = this.Size.Width / 2 - 196;
+                y += 86;
+            }
 
             pictureBox1.Location = new Point(this.Width / 2 - 290, 100);
 
   
         }
+        private void jatekTerklikk(object sender, EventArgs e)
+        {
+            PictureBox klikkelt = sender as PictureBox;
+            MessageBox.Show(klikkelt.Name + "," + klikkelt.Tag);
+
+            if (aktBabu.BackgroundImage == null)
+            {
+                MessageBox.Show("XD");
+            }
+            else
+            {
+                klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+                klikkelt.Name += $"{aktSzin}";
+
+                for (int i = 0; i < 2; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        if (babuk[i, j].Name == aktBabu.Name)
+                        {
+                            babuk[i, j].Visible = false;
+                        }
+                    }
+                }
+
+                aktBabu.BackgroundImage = null;
+                aktBabu.Name = "";
+
+            }
+        }
+
+        private void babuklikk(object sender, EventArgs e)
+        {
+            PictureBox klikkelt = sender as PictureBox;
+            MessageBox.Show(klikkelt.Name);
+            int nevSzinJelolo = Convert.ToInt32(klikkelt.Name.Split('_')[2]);
+            if (nevSzinJelolo != aktSzin)
+            {
+                MessageBox.Show("Nem te vagy a soron lévő játékos!");
+            }
+            else
+            {
+                aktBabu.Name = klikkelt.Name;
+                aktBabu.BackgroundImage = klikkelt.BackgroundImage;
+            }
+            
+        }
+
 
         private void babugeneralas()
         {
@@ -73,18 +150,18 @@ namespace malom
                 {
                     PictureBox babu = new PictureBox();
                     babu.Size = new Size(50, 50);
-                    babu.Name = $"babu_{i}_{j}";
-                    babu.BackgroundImage = keplista.Images[szin % 2];
+                    babu.Name = $"{i}_{j}_{szin}";
+                    babu.BackgroundImage = keplista.Images[szin];
                     babu.Location = new Point(x + 6, y);
                     babu.BackgroundImageLayout = ImageLayout.Zoom;
                     babu.BackColor = Color.Transparent;
-                    //babu.MouseClick += new MouseEventHandler(babuklikk);
                     babuk[i, j] = babu;
+                    babu.MouseClick += new MouseEventHandler(babuklikk);
                     this.Controls.Add(babu);
 
-                    szin++;
                     x += 55;
                 }
+                szin++;
                 x = this.Width / 2 - 290;
                 y += 55;
             }
@@ -97,6 +174,7 @@ namespace malom
             label1.Visible = false;
             label2.Visible = false;
             button1.Visible = false;
+            pictureBox1.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
