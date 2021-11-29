@@ -52,9 +52,11 @@ namespace malom
 
         private void palyaelhelyezes()
         {
-            int x = this.Size.Width / 2 - 196;
-            int y = 100;
+            int x = 0;
+            int y = 0;
             string[] palyaGeneraloSeged = { "0_0", "0_3", "0_6", "1_1", "1_3", "1_5", "2_2", "2_3", "2_4", "3_0", "3_1", "3_2", "3_4", "3_5", "3_6", "4_2", "4_3", "4_4", "5_1", "5_3", "5_5", "6_0", "6_3", "6_6" };
+
+            
 
             for (int i = 0; i < 7; i++)
             {
@@ -64,7 +66,7 @@ namespace malom
                     kep.BackColor = Color.Brown;
                     kep.Size = new Size(50, 50);
                     kep.BackgroundImageLayout = ImageLayout.Zoom;
-                    kep.Location = new Point(x + 30, y);
+                    kep.Location = new Point(x, y);
                     kep.Name = $"{i}_{j}";
                     kep.Tag = "1";
                     kep.MouseClick += new MouseEventHandler(jatekTerklikk);
@@ -77,17 +79,19 @@ namespace malom
                     }
 
                     kep.BringToFront();
-                    this.Controls.Add(kep);
-                    x +=86;
+                    pictureBox1.Controls.Add(kep);
+                    x += 50;
                 }
-
-                x = this.Size.Width / 2 - 196;
-                y += 86;
+                y += 50;
             }
 
-            pictureBox1.Location = new Point(this.Width / 2 - 290, 100);
+            MessageBox.Show($"{pictureBox1.Size.Width} \n {pictureBox1.Size.Height}");
+            pictureBox1.Location = new Point(this.ClientSize.Width / 2 - pictureBox1.Size.Width / 2,200);
+            pictureBox1.Anchor = AnchorStyles.None;
 
-  
+
+
+
         }
         private void jatekTerklikk(object sender, EventArgs e)
         {
@@ -160,7 +164,6 @@ namespace malom
             label1.Visible = false;
             label2.Visible = false;
             button1.Visible = false;
-            pictureBox1.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
