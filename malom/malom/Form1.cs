@@ -92,51 +92,38 @@ namespace malom
         private void jatekTerklikk(object sender, EventArgs e)
         {
             PictureBox klikkelt = sender as PictureBox;
-            MessageBox.Show(klikkelt.Name + "," + klikkelt.Tag);
 
-            if (aktBabu.BackgroundImage == null)
+            for (int i = 0; i < 9; i++)
             {
-                MessageBox.Show("XD");
+                aktBabu = babuk[aktSzin % 2, i];
+            }
+
+
+            if(klikkelt.BackgroundImage == null)
+            {
+                klikkelt.Name += aktBabu.Name.Split('_')[2];
+                klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+                aktSzin++;
             }
             else
             {
-                klikkelt.BackgroundImage = aktBabu.BackgroundImage;
-                klikkelt.Name += $"{aktSzin}";
+                MessageBox.Show($"Itt már van bábú!");
+            }
 
-                for (int i = 0; i < 2; i++)
+
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 9; j++)
                 {
-                    for (int j = 0; j < 9; j++)
+                    if(babuk[i, j].Name == aktBabu.Name)
                     {
-                        if (babuk[i, j].Name == aktBabu.Name)
-                        {
-                            babuk[i, j].Visible = false;
-                        }
+                        babuk[i, j].Visible = false;
                     }
                 }
-
-                aktBabu.BackgroundImage = null;
-                aktBabu.Name = "";
-
             }
+
         }
-
-        private void babuklikk(object sender, EventArgs e)
-        {
-            PictureBox klikkelt = sender as PictureBox;
-            MessageBox.Show(klikkelt.Name);
-            int nevSzinJelolo = Convert.ToInt32(klikkelt.Name.Split('_')[2]);
-            if (nevSzinJelolo != aktSzin)
-            {
-                MessageBox.Show("Nem te vagy a soron lévő játékos!");
-            }
-            else
-            {
-                aktBabu.Name = klikkelt.Name;
-                aktBabu.BackgroundImage = klikkelt.BackgroundImage;
-            }
-            
-        }
-
 
         private void babugeneralas()
         {
@@ -156,7 +143,6 @@ namespace malom
                     babu.BackgroundImageLayout = ImageLayout.Zoom;
                     babu.BackColor = Color.Transparent;
                     babuk[i, j] = babu;
-                    babu.MouseClick += new MouseEventHandler(babuklikk);
                     this.Controls.Add(babu);
 
                     x += 55;
