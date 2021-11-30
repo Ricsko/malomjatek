@@ -41,10 +41,10 @@ C:\Users\user\Desktop\SUSU\MalomProjekt\malom\malom\obj\Debug\malom.pdb
 D:\malom\malom\malom\bin\Debug\malom.exe.config
 D:\malom\malom\malom\bin\Debug\malom.exe
 D:\malom\malom\malom\bin\Debug\malom.pdb
-D:\malom\malom\malom\obj\Debug\malom.csprojAssemblyReference.cache
 D:\malom\malom\malom\obj\Debug\malom.Form1.resources
 D:\malom\malom\malom\obj\Debug\malom.Properties.Resources.resources
 D:\malom\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
 D:\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
 D:\malom\malom\malom\obj\Debug\malom.exe
 D:\malom\malom\malom\obj\Debug\malom.pdb
+D:\malom\malom\malom\obj\Debug\malom.csproj.AssemblyReference.cache

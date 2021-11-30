@@ -63,6 +63,16 @@ namespace malom.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ezkellenifogadrianbattyanak {
+            get {
+                object obj = ResourceManager.GetObject("ezkellenifogadrianbattyanak", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap feher {
             get {
                 object obj = ResourceManager.GetObject("feher", resourceCulture);
@@ -106,6 +116,16 @@ namespace malom.Properties {
         internal static System.Drawing.Bitmap tabla {
             get {
                 object obj = ResourceManager.GetObject("tabla", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tablaa {
+            get {
+                object obj = ResourceManager.GetObject("tablaa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

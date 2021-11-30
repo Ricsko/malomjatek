@@ -42,6 +42,7 @@ namespace malom
             this.Xbutton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.keplista = new System.Windows.Forms.ImageList(this.components);
+            this.keszitoklbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -102,9 +103,9 @@ namespace malom
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::malom.Properties.Resources.tabla;
+            this.pictureBox1.BackgroundImage = global::malom.Properties.Resources.tablaa;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(347, 64);
+            this.pictureBox1.Location = new System.Drawing.Point(301, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(530, 530);
             this.pictureBox1.TabIndex = 5;
@@ -127,7 +128,7 @@ namespace malom
             this.richTextBox1.BackColor = System.Drawing.SystemColors.InfoText;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.Info;
-            this.richTextBox1.Location = new System.Drawing.Point(347, 64);
+            this.richTextBox1.Location = new System.Drawing.Point(301, 64);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(530, 530);
             this.richTextBox1.TabIndex = 7;
@@ -137,7 +138,7 @@ namespace malom
             // Xbutton
             // 
             this.Xbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Xbutton.Location = new System.Drawing.Point(844, 29);
+            this.Xbutton.Location = new System.Drawing.Point(798, 29);
             this.Xbutton.Name = "Xbutton";
             this.Xbutton.Size = new System.Drawing.Size(33, 29);
             this.Xbutton.TabIndex = 8;
@@ -153,7 +154,7 @@ namespace malom
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(12, -52);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(324, 219);
+            this.pictureBox2.Size = new System.Drawing.Size(283, 203);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
@@ -164,6 +165,19 @@ namespace malom
             this.keplista.Images.SetKeyName(0, "feher.png");
             this.keplista.Images.SetKeyName(1, "feka.png");
             // 
+            // keszitoklbl
+            // 
+            this.keszitoklbl.AutoSize = true;
+            this.keszitoklbl.BackColor = System.Drawing.Color.Transparent;
+            this.keszitoklbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.keszitoklbl.ForeColor = System.Drawing.Color.White;
+            this.keszitoklbl.Location = new System.Drawing.Point(858, 561);
+            this.keszitoklbl.Name = "keszitoklbl";
+            this.keszitoklbl.Size = new System.Drawing.Size(195, 80);
+            this.keszitoklbl.TabIndex = 10;
+            this.keszitoklbl.Text = "Készítette:\r\nKatona Koppány Gábor\r\nSzudár Richárd\r\nLázár Adrián\r\n";
+            this.keszitoklbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +186,7 @@ namespace malom
             this.BackgroundImage = global::malom.Properties.Resources.hatter;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1065, 650);
+            this.Controls.Add(this.keszitoklbl);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Xbutton);
             this.Controls.Add(this.richTextBox1);
@@ -206,6 +221,7 @@ namespace malom
         private System.Windows.Forms.Button Xbutton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ImageList keplista;
+        private System.Windows.Forms.Label keszitoklbl;
     }
 }
 
