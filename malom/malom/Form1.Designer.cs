@@ -43,8 +43,16 @@ namespace malom
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.keplista = new System.Windows.Forms.ImageList(this.components);
             this.keszitoklbl = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.játékToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.újraindításToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.témaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alapértelmezettToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sötétToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -92,6 +100,7 @@ namespace malom
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.BackgroundImage = global::malom.Properties.Resources.inditas;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(16, 582);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 56);
@@ -103,7 +112,7 @@ namespace malom
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::malom.Properties.Resources.tablaa;
+            this.pictureBox1.BackgroundImage = global::malom.Properties.Resources.tablaaa;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(301, 64);
             this.pictureBox1.Name = "pictureBox1";
@@ -152,7 +161,7 @@ namespace malom
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::malom.Properties.Resources.TITLE;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(12, -52);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 29);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(283, 203);
             this.pictureBox2.TabIndex = 9;
@@ -178,6 +187,63 @@ namespace malom
             this.keszitoklbl.Text = "Készítette:\r\nKatona Koppány Gábor\r\nSzudár Richárd\r\nLázár Adrián\r\n";
             this.keszitoklbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.játékToolStripMenuItem,
+            this.témaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1065, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // játékToolStripMenuItem
+            // 
+            this.játékToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.újraindításToolStripMenuItem});
+            this.játékToolStripMenuItem.Name = "játékToolStripMenuItem";
+            this.játékToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.játékToolStripMenuItem.Text = "Játék";
+            // 
+            // újraindításToolStripMenuItem
+            // 
+            this.újraindításToolStripMenuItem.Name = "újraindításToolStripMenuItem";
+            this.újraindításToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.újraindításToolStripMenuItem.Text = "Újraindítás";
+            this.újraindításToolStripMenuItem.Click += new System.EventHandler(this.újraindításToolStripMenuItem_Click);
+            // 
+            // témaToolStripMenuItem
+            // 
+            this.témaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alapértelmezettToolStripMenuItem,
+            this.sötétToolStripMenuItem,
+            this.lilaToolStripMenuItem});
+            this.témaToolStripMenuItem.Name = "témaToolStripMenuItem";
+            this.témaToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.témaToolStripMenuItem.Text = "Téma";
+            // 
+            // alapértelmezettToolStripMenuItem
+            // 
+            this.alapértelmezettToolStripMenuItem.Name = "alapértelmezettToolStripMenuItem";
+            this.alapértelmezettToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alapértelmezettToolStripMenuItem.Text = "Alapértelmezett";
+            this.alapértelmezettToolStripMenuItem.Click += new System.EventHandler(this.alapértelmezettToolStripMenuItem_Click);
+            // 
+            // sötétToolStripMenuItem
+            // 
+            this.sötétToolStripMenuItem.Name = "sötétToolStripMenuItem";
+            this.sötétToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sötétToolStripMenuItem.Text = "Sötét";
+            this.sötétToolStripMenuItem.Click += new System.EventHandler(this.sötétToolStripMenuItem_Click);
+            // 
+            // lilaToolStripMenuItem
+            // 
+            this.lilaToolStripMenuItem.Name = "lilaToolStripMenuItem";
+            this.lilaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lilaToolStripMenuItem.Text = "Lila";
+            this.lilaToolStripMenuItem.Click += new System.EventHandler(this.lilaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,12 +263,16 @@ namespace malom
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Malom játék";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +292,13 @@ namespace malom
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ImageList keplista;
         private System.Windows.Forms.Label keszitoklbl;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem játékToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem újraindításToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem témaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alapértelmezettToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sötétToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lilaToolStripMenuItem;
     }
 }
 

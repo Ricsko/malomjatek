@@ -104,5 +104,26 @@
   <ItemGroup>
     <None Include="bin\Debug\tablaa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\tablaaa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\sotet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\fekete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\vilagos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\fekatabla.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\rozsaszin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\lila.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

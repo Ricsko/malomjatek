@@ -28,7 +28,7 @@ namespace malom
         {
             this.WindowState = FormWindowState.Maximized;
             nevellenorzes();
-          
+            keszitoklbl.Visible = false;
             
             button2.Visible = false;
         }
@@ -174,6 +174,50 @@ namespace malom
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void újraindításToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void alapértelmezettToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.hatter;
+            pictureBox1.BackgroundImage = Properties.Resources.tablaaa;
+            button1.BackColor = Color.Black;
+            button2.BackColor = Color.Black;
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
+            keszitoklbl.ForeColor = Color.White;
+            jatekos1_TBOX.BackColor = Color.White;
+            jatekos2_TBOX.BackColor = Color.White;
+        }
+
+        private void sötétToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.fekete;
+            pictureBox1.BackgroundImage = Properties.Resources.tablaa;
+            button1.BackColor = Color.Black;
+            button2.BackColor = Color.Black;
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
+            keszitoklbl.ForeColor = Color.White;
+            jatekos1_TBOX.BackColor = Color.White;
+            jatekos2_TBOX.BackColor = Color.White;
+        }
+
+        private void lilaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackgroundImage = Properties.Resources.lila;
+            pictureBox1.BackgroundImage = Properties.Resources.rozsaszin;
+            button1.BackColor = Color.Purple;
+            button2.BackColor = Color.Purple;
+            label1.ForeColor = Color.White;
+            label2.ForeColor = Color.White;
+            keszitoklbl.ForeColor = Color.White;
+            jatekos1_TBOX.BackColor = Color.White;
+            jatekos2_TBOX.BackColor = Color.White;
         }
     }
 }
