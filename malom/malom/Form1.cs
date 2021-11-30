@@ -28,7 +28,7 @@ namespace malom
         {
             this.WindowState = FormWindowState.Maximized;
             nevellenorzes();
-          
+            keszitoklbl.Visible = false;
             
             button2.Visible = false;
         }
