@@ -69,7 +69,7 @@ namespace malom
                 for (int j = 0; j < 7; j++)
                 {
                     PictureBox kep = new PictureBox();
-                    kep.BackColor = Color.Brown;
+                    kep.BackColor = Color.Transparent;
                     kep.Size = new Size(50, 50);
                     kep.BackgroundImageLayout = ImageLayout.Zoom;
                     kep.Location = new Point(x + 30, y);
@@ -169,6 +169,11 @@ namespace malom
             button1.Visible = true;
             richTextBox1.Visible = false;
             Xbutton.Visible = false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
