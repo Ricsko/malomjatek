@@ -15,6 +15,8 @@ namespace malom
         static PictureBox[,] babuk = new PictureBox[2, 9];
         static PictureBox[,] jatekTer = new PictureBox[7, 7];
         static int aktSzin = 0;
+        static int babuIndex = 0;
+        static int segedSzamlalo = 0;
         static PictureBox aktBabu = new PictureBox();
 
         public Form1()
@@ -52,21 +54,25 @@ namespace malom
 
         private void palyaelhelyezes()
         {
-            int x = 0;
+            int x = -30;
             int y = 0;
             string[] palyaGeneraloSeged = { "0_0", "0_3", "0_6", "1_1", "1_3", "1_5", "2_2", "2_3", "2_4", "3_0", "3_1", "3_2", "3_4", "3_5", "3_6", "4_2", "4_3", "4_4", "5_1", "5_3", "5_5", "6_0", "6_3", "6_6" };
 
-            
+            pictureBox1.Size = new Size(530, 530);
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(this.ClientSize.Width / 2 - pictureBox1.Size.Width / 2, 200);
+            pictureBox1.Anchor = AnchorStyles.None;
+
 
             for (int i = 0; i < 7; i++)
             {
-                for (int  j = 0;  j < 7;  j++)
+                for (int j = 0; j < 7; j++)
                 {
                     PictureBox kep = new PictureBox();
                     kep.BackColor = Color.Brown;
                     kep.Size = new Size(50, 50);
                     kep.BackgroundImageLayout = ImageLayout.Zoom;
-                    kep.Location = new Point(x, y);
+                    kep.Location = new Point(x + 30, y);
                     kep.Name = $"{i}_{j}";
                     kep.Tag = "1";
                     kep.MouseClick += new MouseEventHandler(jatekTerklikk);
@@ -80,53 +86,29 @@ namespace malom
 
                     kep.BringToFront();
                     pictureBox1.Controls.Add(kep);
-                    x += 50;
+                    x += 80;
                 }
-                y += 50;
+                x = -30;
+                y += 80;
             }
-
-            MessageBox.Show($"{pictureBox1.Size.Width} \n {pictureBox1.Size.Height}");
-            pictureBox1.Location = new Point(this.ClientSize.Width / 2 - pictureBox1.Size.Width / 2,200);
-            pictureBox1.Anchor = AnchorStyles.None;
-
-
-
-
         }
         private void jatekTerklikk(object sender, EventArgs e)
         {
             PictureBox klikkelt = sender as PictureBox;
 
-            for (int i = 0; i < 9; i++)
-            {
-                aktBabu = babuk[aktSzin % 2, i];
-            }
-
-
             if(klikkelt.BackgroundImage == null)
             {
+                aktBabu.Name = babuk[aktSzin % 2, babuIndex].Name;
+                aktBabu.BackgroundImage = babuk[aktSzin % 2, babuIndex].BackgroundImage;
                 klikkelt.Name += aktBabu.Name.Split('_')[2];
                 klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+
                 aktSzin++;
             }
             else
             {
                 MessageBox.Show($"Itt már van bábú!");
             }
-
-
-
-            for (int i = 0; i < 2; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    if(babuk[i, j].Name == aktBabu.Name)
-                    {
-                        babuk[i, j].Visible = false;
-                    }
-                }
-            }
-
         }
 
         private void babugeneralas()

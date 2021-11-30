@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\malom",
-    "\\malom\\malom"
+    ""
   ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "SelectedNode": "\\D:\\majom",
-=======
->>>>>>> 55d060b7597bceef6ed9e160c2b818e3bb6c6178
-=======
-  "SelectedNode": "\\malom\\malom\\Form1.cs",
->>>>>>> 9a49487cb24a73a311e1d512e566f3d820799fdf
+  "SelectedNode": "\\malom.sln",
   "PreviewInSolutionExplorer": false
 }
