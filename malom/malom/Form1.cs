@@ -14,6 +14,10 @@ namespace malom
     {
         static PictureBox[,] babuk = new PictureBox[2, 9];
         static PictureBox[,] jatekTer = new PictureBox[7, 7];
+        static List<string> feherbabuk = new List<string>();
+        static int feherSzamlalo = 0;
+        static List<string> feketebabuk = new List<string>();
+        static int feketeSzamlalo = 0;
         static int aktSzin = 0;
         static int babuIndex = 0;
         static int segedSzamlalo = 0;
@@ -96,19 +100,46 @@ namespace malom
         {
             PictureBox klikkelt = sender as PictureBox;
 
-            if(klikkelt.BackgroundImage == null)
+            if (feherSzamlalo != 9 && feketeSzamlalo != 9)
             {
-                aktBabu.Name = babuk[aktSzin % 2, babuIndex].Name;
-                aktBabu.BackgroundImage = babuk[aktSzin % 2, babuIndex].BackgroundImage;
-                klikkelt.Name += aktBabu.Name.Split('_')[2];
-                klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+                lerak(klikkelt);
+            }
+            else if (klikkelt.BackgroundImage != null && feherSzamlalo == 9 && feketeSzamlalo == 9)
+            {
+                MessageBox.Show("asd");
+                csusztatas(klikkelt);
+            }
+        }
 
-                aktSzin++;
+        private void csusztatas(PictureBox klikkelt)
+        {
+            
+        }
+
+        private void lerak(PictureBox klikkelt)
+        {
+            int seged = aktSzin % 2;
+
+            for (int i = 0; i < 8; i++)
+            {
+                aktBabu.Name = babuk[seged, i].Name;
+                aktBabu.BackgroundImage = babuk[seged, i].BackgroundImage;
+            }
+            klikkelt.Name += $"_{aktBabu.Name}";
+            klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+
+            if(Convert.ToInt32(klikkelt.Name.Split('_')[2]) == 0)
+            {
+                feherbabuk.Add(klikkelt.Name);
+                feherSzamlalo++;
             }
             else
             {
-                MessageBox.Show($"Itt már van bábú!");
+                feketebabuk.Add(klikkelt.Name);
+                feketeSzamlalo++;
             }
+            MessageBox.Show(klikkelt.Name);
+            aktSzin++;
         }
 
         private void babugeneralas()
@@ -123,7 +154,7 @@ namespace malom
                 {
                     PictureBox babu = new PictureBox();
                     babu.Size = new Size(50, 50);
-                    babu.Name = $"{i}_{j}_{szin}";
+                    babu.Name = $"{szin}";
                     babu.BackgroundImage = keplista.Images[szin];
                     babu.Location = new Point(x + 6, y);
                     babu.BackgroundImageLayout = ImageLayout.Zoom;
