@@ -15,12 +15,10 @@ namespace malom
         static PictureBox[,] babuk = new PictureBox[2, 9];
         static PictureBox[,] jatekTer = new PictureBox[7, 7];
         static List<string> feherbabuk = new List<string>();
-        static int feherSzamlalo = 0;
         static List<string> feketebabuk = new List<string>();
-        static int feketeSzamlalo = 0;
+        static int szamlalo = 0;
         static int aktSzin = 0;
-        static int babuIndex = 0;
-        static int segedSzamlalo = 0;
+        static bool kiv = false;
         static PictureBox aktBabu = new PictureBox();
 
         public Form1()
@@ -100,20 +98,61 @@ namespace malom
         {
             PictureBox klikkelt = sender as PictureBox;
 
-            if (feherSzamlalo != 9 && feketeSzamlalo != 9)
+            if (klikkelt.BackgroundImage == null && szamlalo < 18)
             {
                 lerak(klikkelt);
             }
-            else if (klikkelt.BackgroundImage != null && feherSzamlalo == 9 && feketeSzamlalo == 9)
+            else if (klikkelt.BackgroundImage != null && szamlalo == 18)
             {
-                MessageBox.Show("asd");
+                csusztatasBabuKiv(klikkelt);
+            }
+            else if (klikkelt.BackgroundImage == null && kiv == true)
+            {
                 csusztatas(klikkelt);
             }
         }
 
         private void csusztatas(PictureBox klikkelt)
         {
-            
+            klikkelt.BackgroundImage = aktBabu.BackgroundImage;
+            klikkelt.Name += $"_{aktBabu.Name.Split('_')[2]}";
+
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (jatekTer[i, j].Name == aktBabu.Name)
+                    {
+                        jatekTer[i, j].Name = $"{i}_{j}";
+                        jatekTer[i, j].BackgroundImage = null;
+                    }
+                }
+            }
+
+            ellenorzes();
+            aktBabu.BackgroundImage = null;
+            aktBabu.Name = "";
+            kiv = false;
+            aktSzin++;
+        }
+
+        private void csusztatasBabuKiv(PictureBox klikkelt)
+        {
+            int seged = aktSzin % 2;
+
+            if (kiv == false)
+            {
+                if (Convert.ToInt32(klikkelt.Name.Split('_')[2]) == seged)
+                {
+                    aktBabu.BackgroundImage = klikkelt.BackgroundImage;
+                    aktBabu.Name = $"{klikkelt.Name}";
+                    kiv = true;
+                }
+                else
+                {
+                    MessageBox.Show("Nem te vagy a soron lévő játékos");
+                }
+            }  
         }
 
         private void lerak(PictureBox klikkelt)
@@ -131,15 +170,74 @@ namespace malom
             if(Convert.ToInt32(klikkelt.Name.Split('_')[2]) == 0)
             {
                 feherbabuk.Add(klikkelt.Name);
-                feherSzamlalo++;
             }
             else
             {
                 feketebabuk.Add(klikkelt.Name);
-                feketeSzamlalo++;
             }
-            MessageBox.Show(klikkelt.Name);
+
+            ellenorzes();
             aktSzin++;
+            szamlalo++;
+
+            if (szamlalo == 18)
+            {
+                aktBabu.Name = "";
+                aktBabu.BackgroundImage = null;
+                aktSzin = 0;
+            }
+        }
+
+        private void ellenorzes()
+        {
+            List<string> nevEllenorzes = new List<string>();
+            //VÍZSZINT
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (jatekTer[i, j].BackgroundImage != null)
+                    {
+                        nevEllenorzes.Add(jatekTer[i, j].Name);
+                    }
+                }
+
+                if (nevEllenorzes.Count == 3)
+                {
+                    if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
+                    {
+                        MessageBox.Show("Vízsszint");
+                    }
+                }
+                else
+                {
+                    nevEllenorzes.Clear();
+                }
+            }
+
+            //FÜGGŐLEGES
+            for (int i = 0; i < 7; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (jatekTer[j, i].BackgroundImage != null)
+                    {
+                        nevEllenorzes.Add(jatekTer[j, i].Name);
+                    }
+                }
+
+                if (nevEllenorzes.Count == 3)
+                {
+                    if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
+                    {
+                        MessageBox.Show("Függőleges");
+                    }
+                }
+                else
+                {
+                    nevEllenorzes.Clear();
+                }
+            }
         }
 
         private void babugeneralas()
