@@ -209,7 +209,7 @@ namespace malom
             // újraindításToolStripMenuItem
             // 
             this.újraindításToolStripMenuItem.Name = "újraindításToolStripMenuItem";
-            this.újraindításToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.újraindításToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.újraindításToolStripMenuItem.Text = "Újraindítás";
             this.újraindításToolStripMenuItem.Click += new System.EventHandler(this.újraindításToolStripMenuItem_Click);
             // 
@@ -220,27 +220,27 @@ namespace malom
             this.sötétToolStripMenuItem,
             this.lilaToolStripMenuItem});
             this.témaToolStripMenuItem.Name = "témaToolStripMenuItem";
-            this.témaToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.témaToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.témaToolStripMenuItem.Text = "Téma";
             // 
             // alapértelmezettToolStripMenuItem
             // 
             this.alapértelmezettToolStripMenuItem.Name = "alapértelmezettToolStripMenuItem";
-            this.alapértelmezettToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alapértelmezettToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.alapértelmezettToolStripMenuItem.Text = "Alapértelmezett";
             this.alapértelmezettToolStripMenuItem.Click += new System.EventHandler(this.alapértelmezettToolStripMenuItem_Click);
             // 
             // sötétToolStripMenuItem
             // 
             this.sötétToolStripMenuItem.Name = "sötétToolStripMenuItem";
-            this.sötétToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sötétToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.sötétToolStripMenuItem.Text = "Sötét";
             this.sötétToolStripMenuItem.Click += new System.EventHandler(this.sötétToolStripMenuItem_Click);
             // 
             // lilaToolStripMenuItem
             // 
             this.lilaToolStripMenuItem.Name = "lilaToolStripMenuItem";
-            this.lilaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lilaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.lilaToolStripMenuItem.Text = "Lila";
             this.lilaToolStripMenuItem.Click += new System.EventHandler(this.lilaToolStripMenuItem_Click);
             // 

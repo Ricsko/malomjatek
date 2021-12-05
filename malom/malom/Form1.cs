@@ -19,6 +19,7 @@ namespace malom
         static int szamlalo = 0;
         static int aktSzin = 0;
         static bool kiv = false;
+        static bool levetel = false;
         static PictureBox aktBabu = new PictureBox();
 
         public Form1()
@@ -110,13 +111,19 @@ namespace malom
             {
                 csusztatas(klikkelt);
             }
+            else if (klikkelt.BackgroundImage != null && levetel == true)
+            {
+                babuLevetel(klikkelt);
+            }
         }
 
         private void csusztatas(PictureBox klikkelt)
         {
+            int seged = aktSzin % 2;
+
             klikkelt.BackgroundImage = aktBabu.BackgroundImage;
             klikkelt.Name += $"_{aktBabu.Name.Split('_')[2]}";
-
+            
             for (int i = 0; i < 7; i++)
             {
                 for (int j = 0; j < 7; j++)
@@ -128,8 +135,29 @@ namespace malom
                     }
                 }
             }
+            //A játékos bábúinak listája FEKETE / FEHÉR
+            if (seged == 0)
+            {
+                for (int i = 0; i < feherbabuk.Count; i++)
+                {
+                    if (feherbabuk[i] == aktBabu.Name)
+                    {
+                        feherbabuk[i] = klikkelt.Name;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < feketebabuk.Count; i++)
+                {
+                    if (feherbabuk[i] == aktBabu.Name)
+                    {
+                        feherbabuk[i] = klikkelt.Name;
+                    }
+                }
+            }
 
-            ellenorzes();
+            ellenorzes(klikkelt);
             aktBabu.BackgroundImage = null;
             aktBabu.Name = "";
             kiv = false;
@@ -176,7 +204,7 @@ namespace malom
                 feketebabuk.Add(klikkelt.Name);
             }
 
-            ellenorzes();
+            ellenorzes(klikkelt);
             aktSzin++;
             szamlalo++;
 
@@ -188,55 +216,122 @@ namespace malom
             }
         }
 
-        private void ellenorzes()
+        private void ellenorzes(PictureBox klikkelt)
         {
             List<string> nevEllenorzes = new List<string>();
-            //VÍZSZINT
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 0; j < 7; j++)
-                {
-                    if (jatekTer[i, j].BackgroundImage != null)
-                    {
-                        nevEllenorzes.Add(jatekTer[i, j].Name);
-                    }
-                }
+            List<string> kiJott = new List<string>();
 
-                if (nevEllenorzes.Count == 3)
-                {
-                    if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
-                    {
-                        MessageBox.Show("Vízsszint");
-                    }
-                }
-                else
+            //VÍZSZINT
+            if (kiJott.Count != 0)
+            {
+                if (kiJott[0] == nevEllenorzes[0] && kiJott[1] == nevEllenorzes[1] && kiJott[2] == nevEllenorzes[2])
                 {
                     nevEllenorzes.Clear();
                 }
             }
+            else
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        if (jatekTer[i, j].BackgroundImage != null)
+                        {
+                            nevEllenorzes.Add(jatekTer[i, j].Name);
+                        }
+                    }
+
+                    if (nevEllenorzes.Count == 3)
+                    {
+                        if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
+                        {
+                            MessageBox.Show("Vegyen le egy ellenkező színű bábút!");
+                            levetel = true;
+
+                            kiJott[0] = nevEllenorzes[0];
+                            kiJott[1] = nevEllenorzes[1];
+                            kiJott[2] = nevEllenorzes[2];
+                        }
+                    }
+                    else
+                    {
+                        nevEllenorzes.Clear();
+                    }
+                }
+            }
 
             //FÜGGŐLEGES
-            for (int i = 0; i < 7; i++)
+            if (kiJott.Count != 0)
             {
-                for (int j = 0; j < 7; j++)
-                {
-                    if (jatekTer[j, i].BackgroundImage != null)
-                    {
-                        nevEllenorzes.Add(jatekTer[j, i].Name);
-                    }
-                }
-
-                if (nevEllenorzes.Count == 3)
-                {
-                    if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
-                    {
-                        MessageBox.Show("Függőleges");
-                    }
-                }
-                else
+                if (kiJott[0] == nevEllenorzes[0] && kiJott[1] == nevEllenorzes[1] && kiJott[2] == nevEllenorzes[2])
                 {
                     nevEllenorzes.Clear();
                 }
+            }
+            else
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        if (jatekTer[j, i].BackgroundImage != null)
+                        {
+                            nevEllenorzes.Add(jatekTer[j, i].Name);
+                        }
+                    }
+
+                    if (nevEllenorzes.Count == 3)
+                    {
+                        if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
+                        {
+                            MessageBox.Show("Vegyen le egy ellenkező színű bábút!");
+                            levetel = true;
+
+                            kiJott[0] = nevEllenorzes[0];
+                            kiJott[1] = nevEllenorzes[1];
+                            kiJott[2] = nevEllenorzes[2];
+                        }
+                    }
+                    else
+                    {
+                        nevEllenorzes.Clear();
+                    }
+                }
+            }
+        }
+
+        private void babuLevetel(PictureBox klikkelt)
+        {
+            int row = Convert.ToInt32(klikkelt.Name.Split('_')[0]);
+            int col = Convert.ToInt32(klikkelt.Name.Split('_')[1]);
+
+            if (klikkelt.Name.Split('_')[2] == "1")
+            {
+                for (int i = 0; i < feketebabuk.Count; i++)
+                {
+                    if (feketebabuk[i] == klikkelt.Name)
+                    {
+                        feketebabuk.Remove(klikkelt.Name);
+
+                        jatekTer[row, col].Name = $"{row}_{col}";
+                        jatekTer[row, col].BackgroundImage = null;
+                    }
+                }
+                levetel = false;
+            }
+            else
+            {
+                for (int i = 0; i < feherbabuk.Count; i++)
+                {
+                    if (feherbabuk[i] == klikkelt.Name)
+                    {
+                        feherbabuk.Remove(klikkelt.Name);
+
+                        jatekTer[row, col].Name = $"{row}_{col}";
+                        jatekTer[row, col].BackgroundImage = null;
+                    }
+                }
+                levetel = false;
             }
         }
 
