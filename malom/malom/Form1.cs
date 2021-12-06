@@ -222,16 +222,7 @@ namespace malom
             int oszlop = Convert.ToInt32(klikkelt.Name.Split('_')[1]);
 
             //vízszint
-            for (int i = 0; i < 7; i++)
-            {
-                for (int j = 0; j < 7; j++)
-                {
-                    if (jatekTer[i, j].BackgroundImage != null)
-                    {
-                        
-                    }
-                }
-            }
+            
         }
 
         private void babuLevetel(PictureBox klikkelt)
