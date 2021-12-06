@@ -218,83 +218,17 @@ namespace malom
 
         private void ellenorzes(PictureBox klikkelt)
         {
-            List<string> nevEllenorzes = new List<string>();
-            List<string> kiJott = new List<string>();
+            int sor = Convert.ToInt32(klikkelt.Name.Split('_')[0]);
+            int oszlop = Convert.ToInt32(klikkelt.Name.Split('_')[1]);
 
-            //VÍZSZINT
-            if (kiJott.Count != 0)
+            //vízszint
+            for (int i = 0; i < 7; i++)
             {
-                if (kiJott[0] == nevEllenorzes[0] && kiJott[1] == nevEllenorzes[1] && kiJott[2] == nevEllenorzes[2])
+                for (int j = 0; j < 7; j++)
                 {
-                    nevEllenorzes.Clear();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    for (int j = 0; j < 7; j++)
+                    if (jatekTer[i, j].BackgroundImage != null)
                     {
-                        if (jatekTer[i, j].BackgroundImage != null)
-                        {
-                            nevEllenorzes.Add(jatekTer[i, j].Name);
-                        }
-                    }
-
-                    if (nevEllenorzes.Count == 3)
-                    {
-                        if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
-                        {
-                            MessageBox.Show("Vegyen le egy ellenkező színű bábút!");
-                            levetel = true;
-
-                            kiJott[0] = nevEllenorzes[0];
-                            kiJott[1] = nevEllenorzes[1];
-                            kiJott[2] = nevEllenorzes[2];
-                        }
-                    }
-                    else
-                    {
-                        nevEllenorzes.Clear();
-                    }
-                }
-            }
-
-            //FÜGGŐLEGES
-            if (kiJott.Count != 0)
-            {
-                if (kiJott[0] == nevEllenorzes[0] && kiJott[1] == nevEllenorzes[1] && kiJott[2] == nevEllenorzes[2])
-                {
-                    nevEllenorzes.Clear();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 7; i++)
-                {
-                    for (int j = 0; j < 7; j++)
-                    {
-                        if (jatekTer[j, i].BackgroundImage != null)
-                        {
-                            nevEllenorzes.Add(jatekTer[j, i].Name);
-                        }
-                    }
-
-                    if (nevEllenorzes.Count == 3)
-                    {
-                        if (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[1].Split('_')[2] && (nevEllenorzes[0].Split('_')[2] == nevEllenorzes[2].Split('_')[2]))
-                        {
-                            MessageBox.Show("Vegyen le egy ellenkező színű bábút!");
-                            levetel = true;
-
-                            kiJott[0] = nevEllenorzes[0];
-                            kiJott[1] = nevEllenorzes[1];
-                            kiJott[2] = nevEllenorzes[2];
-                        }
-                    }
-                    else
-                    {
-                        nevEllenorzes.Clear();
+                        
                     }
                 }
             }
