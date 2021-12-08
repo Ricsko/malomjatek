@@ -218,11 +218,68 @@ namespace malom
 
         private void ellenorzes(PictureBox klikkelt)
         {
+            List<string> ellenorzoSeged = new List<string>();
+
             int sor = Convert.ToInt32(klikkelt.Name.Split('_')[0]);
             int oszlop = Convert.ToInt32(klikkelt.Name.Split('_')[1]);
 
-            //vízszint
-            
+            //Vízszintes ellenörzés
+            ellenorzesVizszint(ellenorzoSeged, sor);
+            //Függőleges ellenörzés
+            ellenorzesFuggoleges(ellenorzoSeged, oszlop);
+
+        }
+
+        private void ellenorzesFuggoleges(List<string> ellenorzoSeged, int oszlop)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                if (jatekTer[i, oszlop].BackgroundImage != null)
+                {
+                    ellenorzoSeged.Add(jatekTer[i, oszlop].Name);
+                }
+            }
+
+            if (ellenorzoSeged.Count() != 3)
+            {
+                ellenorzoSeged.Clear();
+            }
+            else
+            {
+                for (int i = 1; i < ellenorzoSeged.Count(); i++)
+                {
+                    if (ellenorzoSeged[i - 1].Split('_')[2] == ellenorzoSeged[i].Split('_')[2])
+                    {
+                        levetel = true;
+                    }
+                }
+            }
+        }
+
+        private void ellenorzesVizszint(List<string> ellenorzoSeged, int sor)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                if (jatekTer[sor, i].BackgroundImage != null)
+                {
+                    ellenorzoSeged.Add(jatekTer[sor, i].Name);
+                }
+            }
+
+            if (ellenorzoSeged.Count() != 3)
+            {
+                ellenorzoSeged.Clear();
+            }
+            else
+            {
+                for (int i = 1; i < ellenorzoSeged.Count(); i++)
+                {
+                    if (ellenorzoSeged[i - 1].Split('_')[2] == ellenorzoSeged[i].Split('_')[2])
+                    {
+                        levetel = true;
+                    }
+                }
+            }
         }
 
         private void babuLevetel(PictureBox klikkelt)
