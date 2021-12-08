@@ -133,6 +133,8 @@ namespace malom
 
         private void csusztatas(PictureBox klikkelt)
         {
+
+            //Nem működik még megfelelően
             int seged = aktSzin % 2;
 
             klikkelt.BackgroundImage = aktBabu.BackgroundImage;
