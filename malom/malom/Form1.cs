@@ -12,6 +12,8 @@ namespace malom
 {
     public partial class Form1 : Form
     {
+        static string nev1 = "";
+        static string nev2 = "";
         static PictureBox[,] babuk = new PictureBox[2, 9];
         static PictureBox[,] jatekTer = new PictureBox[7, 7];
         static List<string> feherbabuk = new List<string>();
@@ -38,21 +40,19 @@ namespace malom
 
         private void nevellenorzes()
         {
-            string nev1 = jatekos1_TBOX.Text;
-            string nev2 = jatekos2_TBOX.Text;
-
-            /*if(nev1 == "" || nev2 == "")
+            if(nev1 == "" || nev2 == "")
             {
                 MessageBox.Show($"Adj meg mindkét játékosnak nevet!");
             }
             else
             {
-             labelek, textboxok, buttonok eltüntetése   
-            }*/
+                nev1 = jatekos1_TBOX.Text + "0";
+                nev2 = jatekos2_TBOX.Text + "1";
 
-            palyaelhelyezes();
-            gombeltuntetes();
-            babugeneralas();
+                palyaelhelyezes();
+                gombeltuntetes();
+                babugeneralas();
+            }
         }
 
         private void palyaelhelyezes()
@@ -114,6 +114,20 @@ namespace malom
             else if (klikkelt.BackgroundImage != null && levetel == true)
             {
                 babuLevetel(klikkelt);
+            }
+
+            nyertes();
+        }
+
+        private void nyertes()
+        {
+            if (feherbabuk.Count() == 2)
+            {
+                MessageBox.Show($"Gratulálok\nA fekete szín nyert!");
+            }
+            else if (feketebabuk.Count() == 2)
+            {
+                MessageBox.Show($"Gratulálok\nA fekete szín nyert!");
             }
         }
 
