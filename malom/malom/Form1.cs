@@ -127,52 +127,23 @@ namespace malom
             }
             else if (feketebabuk.Count() == 2)
             {
-                MessageBox.Show($"Gratulálok\nA fekete szín nyert!");
+                MessageBox.Show($"Gratulálok\nA fehér szín nyert!");
             }
         }
 
         private void csusztatas(PictureBox klikkelt)
         {
-
-            //Nem működik még megfelelően
             int seged = aktSzin % 2;
-
-            klikkelt.BackgroundImage = aktBabu.BackgroundImage;
-            klikkelt.Name += $"_{aktBabu.Name.Split('_')[2]}";
-            
-            for (int i = 0; i < 7; i++)
+            int aktBabuSor = Convert.ToInt32(aktBabu.Name.Split('_')[0]);
+            int aktBabuOszlop = Convert.ToInt32(aktBabu.Name.Split('_')[1]);
+            int klikkeltSor = Convert.ToInt32(aktBabu.Name.Split('_')[0]);
+            int klikkeltOszlop = Convert.ToInt32(aktBabu.Name.Split('_')[1]);
+            /*
+            if (klikkelt.BackgroundImage == null)
             {
-                for (int j = 0; j < 7; j++)
-                {
-                    if (jatekTer[i, j].Name == aktBabu.Name)
-                    {
-                        jatekTer[i, j].Name = $"{i}_{j}";
-                        jatekTer[i, j].BackgroundImage = null;
-                    }
-                }
+                
             }
-            //A játékos bábúinak listája FEKETE / FEHÉR
-            if (seged == 0)
-            {
-                for (int i = 0; i < feherbabuk.Count; i++)
-                {
-                    if (feherbabuk[i] == aktBabu.Name)
-                    {
-                        feherbabuk[i] = klikkelt.Name;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < feketebabuk.Count; i++)
-                {
-                    if (feherbabuk[i] == aktBabu.Name)
-                    {
-                        feherbabuk[i] = klikkelt.Name;
-                    }
-                }
-            }
-
+            */
             ellenorzes(klikkelt);
             aktBabu.BackgroundImage = null;
             aktBabu.Name = "";
